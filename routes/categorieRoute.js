@@ -12,5 +12,5 @@ const {
     .delete("/:id", protectAdmin, deleteCategorie)
     .put("/:id", protectAdmin, updateCategorie)
 
-  module.exports = categorieRouter
+  module.exports = categorieRoute
   
