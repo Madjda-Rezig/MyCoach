@@ -1,10 +1,14 @@
 const express = require("express")
 const mongoose = require("mongoose")
+
+
 const ErrorHandler = require("./middlewares/ErrorHandler")
 
 const authRouter = require("./routes/authRoute")
 const categorieRouter = require("./routes/categorieRoute")
 const userRouter = require("./routes/userRoute")
+const commentRouter = require("./routes/commentRoute")
+const programmeRouter = require("./routes/programmeRoute")
 
 require("dotenv").config()
 
@@ -16,6 +20,8 @@ index.use(express.urlencoded({ extended: true }))
 index.use("/auth", authRouter)
 index.use("/categorie", categorieRouter)
 index.use("/user", userRouter)
+index.use("/programme", programmeRouter)
+index.use("/comment", commentRouter)
 
 index.use("/*", (req, res) => {
   res.status(404).json("Not found!")
