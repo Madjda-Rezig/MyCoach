@@ -3,6 +3,8 @@ const mongoose = require("mongoose")
 const ErrorHandler = require("./middlewares/ErrorHandler")
 
 const authRouter = require("./routes/authRoute")
+const categorieRouter = require("./routes/categorieRoute")
+const userRouter = require("./routes/userRoute")
 
 require("dotenv").config()
 
@@ -12,6 +14,8 @@ index.use(express.urlencoded({ extended: true }))
 
 
 index.use("/auth", authRouter)
+index.use("/categorie", categorieRouter)
+index.use("/user", userRouter)
 
 index.use("/*", (req, res) => {
   res.status(404).json("Not found!")
@@ -21,7 +25,7 @@ index.use(ErrorHandler)
 mongoose
   .connect(process.env.MONGO_URI)
   .then((res) => {
-    app.listen(process.env.PORT, () => {
+    index.listen(process.env.PORT, () => {
       console.log(" The Server for MyCoach App is running")
     })
   })
