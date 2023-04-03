@@ -55,6 +55,7 @@ exports.postProgramme = expressAsyncHandler(async (req, res) => {
         note,
         IdCategorie,
         nombreExerices,
+        disponible
     })
     
     const utilisateurs = await UserModel.find()

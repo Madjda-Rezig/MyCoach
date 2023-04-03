@@ -18,7 +18,7 @@ exports.postCategorie = expressAsyncHandler(async (req, res) => {
   try {
     const { nom } = req.body
     if (!nom) {
-      res.status(400).json("Vide")
+      res.status(400).json("you need to add a name to your category")
     }
 
     await categorieModel.create({

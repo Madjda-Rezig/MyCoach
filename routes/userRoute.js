@@ -9,8 +9,8 @@ const {
   
   userRouter
     .post("/add", addUser)
-    .put("/update", protectUser, updateUser)
-    .delete("/delete/:id", protectAdmin, deleteUser)
-    .delete("/delete", protectUser, autoDelete)
+    .put("/update", updateUser)
+    .delete("/delete/:id", deleteUser)
+    .delete("/delete", autoDelete)
   
   module.exports = userRouter

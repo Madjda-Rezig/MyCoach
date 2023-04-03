@@ -8,8 +8,8 @@ const {
   const { protectUser } = require("../middlewares/Protect")
   authRouter
     .post("/login", Login)
-    .post("/token", protectUser, refreshAccess)
-    .delete("/token", protectUser, logout)
+    .post("/token", refreshAccess)
+    .delete("/token", logout)
   
   module.exports = authRouter
   
